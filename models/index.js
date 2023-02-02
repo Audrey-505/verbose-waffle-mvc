@@ -1,16 +1,16 @@
-const Posts = require('./Posts')
-const Users = require('./Users')
+const Post = require('./Post')
+const User = require('./User')
 
-Users.hasMany(Posts, {
+User.hasMany(Post, {
     foreignKey: 'userame',
     onDelete: 'CASCADE'
 })
 
-Posts.belongsTo(Users, {
+Post.belongsTo(User, {
     foreignKey: 'username',
 })
 
 module.exports = {
-    Posts,
-    Users
+    Post,
+    User
 }

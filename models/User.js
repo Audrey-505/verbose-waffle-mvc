@@ -1,5 +1,5 @@
 const {Model, DataTypes} = require('sequelize')
-const { Hooks } = require('sequelize/types/hooks')
+//const { Hooks } = require('sequelize/types/hooks')
 const bcrypt = require('bcrypt')
 const sequelize = require('../config/connection')
 
