@@ -16,6 +16,10 @@ Posts.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
+        post: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
         username: {
             type: DataTypes.STRING,
             references: {

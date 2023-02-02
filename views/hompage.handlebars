@@ -1,0 +1,7 @@
+{{#each posts as |post| }}
+<div>
+<h2><a href="/posts/{{posts.id}}">{{post.title}}{{posts.date}}</a></h2>
+<h4>{{posts.post}} Posted By: {{posts.username}}</h4>
+<p>{{posts.comment}}</p>
+</div>
+{{/each}}
