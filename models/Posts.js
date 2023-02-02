@@ -30,6 +30,7 @@ Posts.init(
         },
         date: {
             type: DataTypes.DATE,
+            defaultValue: DataTypes.NOW,
             allowNull: false
         },
         comment: {
