@@ -1,7 +1,7 @@
-{{#each posts as |post| }}
+{{#each post }}
 <div>
-<h2><a href="/posts/{{posts.id}}">{{post.title}}{{posts.date}}</a></h2>
-<h4>{{posts.post}} Posted By: {{posts.username}}</h4>
-<p>{{posts.comment}}</p>
+<h2><a href="/posts/{{posts.id}}">{{post.title}}{{post.date}}</a></h2>
+<h4>{{post.post}} Posted By: {{post.username}}</h4>
+<p>{{post.comment}}</p>
 </div>
 {{/each}}

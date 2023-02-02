@@ -1,11 +1,12 @@
 const router = require('express').Router()
-const { Posts } = require('../../models')
+const { Post } = require('../../models')
+const withAuth = require('../../utils/auth')
 
 router.post('/', async(req, res) => {
     try {
-        const newPost = await Posts.create({
+        const newPost = await Post.create({
             ...req.body,
-            username: req.session.username
+            username: req.session.user_id
         })
         res.status(200).json(newPost)
     } catch(err) {
@@ -15,10 +16,10 @@ router.post('/', async(req, res) => {
 
 router.delete('/:id', withAuth, async(req, res) => {
     try {
-        const postData = await Posts.destroy({
+        const postData = await Post.destroy({
             where: {
                 id: req.params.id,
-                username: req.session.username
+                username: req.session.user_id
             }
         })
         if(!postData){

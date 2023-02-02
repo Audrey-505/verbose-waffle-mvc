@@ -1,10 +1,9 @@
 const router = require('express').Router()
-const { Users } = require('../../models')
-const Users = require('../../models/User')
+const { User } = require('../../models')
 
 router.post('/', async(req, res) => {
     try {
-        const newUser = await Users.create(req.body)
+        const newUser = await User.create(req.body)
         req.session.save(() => {
             req.session.id = newUser.id
             req.session.logged_in = true
@@ -18,7 +17,7 @@ router.post('/', async(req, res) => {
 
 router.post('/login', async(req, res) => {
     try {
-        const newUser = await Users.findOne({
+        const newUser = await User.findOne({
             where: {email: req.body.email}
         })
 

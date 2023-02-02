@@ -4,7 +4,13 @@ const path = require('path');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
 const routes = require('./controllers');
+const helpers = require('./utils/helpers')
 
+
+const app = express()
+const PORT = process.env.PORT || 3001
+
+const hbs = exphbs.create({ helpers });
 
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
@@ -28,9 +34,6 @@ const sess = {
   // Inform Express.js on which template engine to use
   app.engine('handlebars', hbs.engine);
   app.set('view engine', 'handlebars');
-
-const app = express()
-const PORT = process.env.PORT || 3001
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
