@@ -12,12 +12,14 @@ const users = await User.bulkCreate(userData, {
     returning: true
 })
 
-for (const post of postData) {
-    await Post.create({
-      ...post,
-      id: users[Math.floor(Math.random() * users.length)].id,
-    });
-  }
+console.log(users)
+
+// for (const post of postData) {
+//     await Post.create({
+//       ...post,
+//       id: users[Math.floor(Math.random() * users.length)].id,
+//     });
+//   }
 
   process.exit(0);
 }
