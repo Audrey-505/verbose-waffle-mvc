@@ -1,4 +1,4 @@
-const newFromHandler = async(event) => {
+const newFormHandler = async(event) => {
     event.preventDefault()
 }
 
@@ -7,7 +7,7 @@ const post = document.querySelector('#post-content').value.trim();
 //const description = document.querySelector('#post-comment').value.trim();
 
 if (title && post) {
-    const response = await fetch(`/api/projects`, {
+    const response = await fetch(`/api/posts`, {
       method: 'POST',
       body: JSON.stringify({ title, post }),
       headers: {
@@ -16,7 +16,7 @@ if (title && post) {
     });
 
     if (response.ok) {
-      document.location.replace('/profile');
+      document.location.replace('/posts');
     } else {
       alert('Failed to create project');
     }
@@ -27,12 +27,12 @@ if (title && post) {
     if (event.target.hasAttribute('data-id')) {
       const id = event.target.getAttribute('data-id');
   
-      const response = await fetch(`/api/projects/${id}`, {
+      const response = await fetch(`/api/posts/${id}`, {
         method: 'DELETE',
       });
   
       if (response.ok) {
-        document.location.replace('/profile');
+        document.location.replace('/post');
       } else {
         alert('Failed to delete project');
       }
