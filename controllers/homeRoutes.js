@@ -8,15 +8,15 @@ router.get('/', async (req, res) => {
             include: [
                 {
                     model: User,
-                    attributes: ['name', 'title', 'date', 'comment']
+                    attributes: ['id','name', 'email']
                 }
             ]
         })
         // Serialize data so the template can read it
         const posts = postsData.map((post) => post.get({ plain: true }))
-
+    
         res.render('homepage', {
-            posts,
+            ...posts,
             logged_in: req.session.logged_in
             // Pass serialized data and session flag into template
         })
@@ -31,7 +31,7 @@ router.get('/post/:id', async(req, res) => {
             include: [
                 {
                     model: User,
-                    attributes: ['name', 'title', 'date', 'comment']
+                    attributes: ['id','name', 'email']
                 }
             ]
         })
