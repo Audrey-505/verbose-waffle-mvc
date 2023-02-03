@@ -16,7 +16,7 @@ if (title && post) {
     });
 
     if (response.ok) {
-      document.location.replace('/posts');
+      document.location.replace('/createpost');
     } else {
       alert('Failed to create project');
     }
@@ -32,7 +32,7 @@ if (title && post) {
       });
   
       if (response.ok) {
-        document.location.replace('/post');
+        document.location.replace('/createpost');
       } else {
         alert('Failed to delete project');
       }
