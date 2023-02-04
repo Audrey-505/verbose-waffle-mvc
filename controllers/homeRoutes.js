@@ -47,7 +47,7 @@ router.get('/post/:id', async(req, res) => {
 
 router.get('/createpost', withAuth, async(req, res) => {
     try {
-        const userData = await User.findByPk(req.session.id, {
+        const userData = await User.findByPk(req.session.user_test, {
             attributes: { exclude: ['password']},
             include: [{model: Post}],
         })
@@ -56,7 +56,7 @@ router.get('/createpost', withAuth, async(req, res) => {
         const user = userData.get({ plain: true })
         console.log(user)
         res.render('createpost', {
-            ...user,
+            user,
             logged_in: true
         })
         //res.render('createpost')
