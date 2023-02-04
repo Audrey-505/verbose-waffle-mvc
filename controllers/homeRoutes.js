@@ -16,7 +16,7 @@ router.get('/', async (req, res) => {
         const posts = postsData.map((post) => post.get({ plain: true }))
     
         res.render('homepage', {
-            ...posts,
+            posts,
             logged_in: req.session.logged_in
             // Pass serialized data and session flag into template
         })
