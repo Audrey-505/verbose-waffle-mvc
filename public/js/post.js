@@ -1,6 +1,6 @@
 const newFormHandler = async(event) => {
     event.preventDefault()
-}
+
 
 const title = document.querySelector('#post-title').value.trim();
 const post = document.querySelector('#post-content').value.trim();
@@ -22,6 +22,7 @@ if (title && post) {
     }
   }
 
+}
 
   const delButtonHandler = async (event) => {
     if (event.target.hasAttribute('data-id')) {
@@ -39,7 +40,8 @@ if (title && post) {
     }
   };
 
-  document
+
+document
   .querySelector('.new-post-form')
   .addEventListener('submit', newFormHandler);
 
