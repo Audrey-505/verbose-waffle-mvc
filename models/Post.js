@@ -32,10 +32,10 @@ Post.init(
             defaultValue: DataTypes.NOW,
             allowNull: false
         },
-        comment: {
-            type: DataTypes.STRING,
-            allowNull: true
-        }
+        // comment: {
+        //     type: DataTypes.STRING,
+        //     allowNull: true
+        // }
     },
     {
         sequelize,
