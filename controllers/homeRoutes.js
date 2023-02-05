@@ -5,6 +5,12 @@ const withAuth = require('../utils/auth')
 router.get('/', async (req, res) => {
     try {
         const postsData = await Post.findAll({
+            attributes: [
+                'id',
+                'title',
+                'post',
+                'date'
+            ],
             include: [
                 {
                     model: User,
