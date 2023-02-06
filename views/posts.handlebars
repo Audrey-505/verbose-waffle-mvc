@@ -4,6 +4,9 @@
   <p>Created by {{user.email}} OR {{id}} on {{date}}</p>
   <p>
     {{post}}
+{{#each comments}}
+    <p>Comment: {{comment_text}} </p>
+    {{/each}}
   </p>
   <div class="update-post"><button class="btn btn-sm btn-danger" data-id="{{id}}">UPDATE</button></div>
 </div>
