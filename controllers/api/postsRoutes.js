@@ -23,7 +23,7 @@ router.delete('/:id', withAuth, async(req, res) => {
         const postData = await Post.destroy({
             where: {
                 id: req.params.id,
-                username: req.session.user_id
+                
             }
         })
         if(!postData){
