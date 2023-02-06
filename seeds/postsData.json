@@ -1,14 +1,17 @@
 [
     {
         "title": "JavaScript or Java",
-        "post": "not sure which one I should attempt to learn first? Pros and cons?"
+        "post": "not sure which one I should attempt to learn first? Pros and cons?",
+        "user_id": 1
     },
     {
         "title": "Why I love mySQL",
-        "post": "There are many reasons why I just love using mySQL, for starters..."
+        "post": "There are many reasons why I just love using mySQL, for starters...",
+        "user_id": 2
     },
     {
         "title": "Chatgpt",
-        "post": "should we be worried about chatgpt? Lets talk about it..."
+        "post": "should we be worried about chatgpt? Lets talk about it...",
+        "user_id": 3
     }
 ]
