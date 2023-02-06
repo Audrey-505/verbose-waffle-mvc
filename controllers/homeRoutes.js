@@ -20,7 +20,6 @@ router.get('/', async (req, res) => {
         })
         // Serialize data so the template can read it
         const posts = postsData.map((post) => post.get({ plain: true }))
-    console.log(posts)
         res.render('homepage', {
             posts,
             logged_in: req.session.logged_in
@@ -43,7 +42,7 @@ router.get('/post/:id', async(req, res) => {
         })
         const post = postData.get({ plain: true })
         res.render('posts', {
-            post,
+            ...post,
             logged_in: req.session.logged_in
         })
     } catch(err) {
