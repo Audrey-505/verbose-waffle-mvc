@@ -9,7 +9,7 @@ router.get('/', async (req, res) => {
                 'id',
                 'title',
                 'post',
-                'date'
+                'date',
             ],
             include: [
                 {
@@ -33,6 +33,12 @@ router.get('/', async (req, res) => {
 router.get('/post/:id', async(req, res) => {
     try {
         const postData = await Post.findByPk(req.params.id, {
+            attributes: [
+                'id',
+                'title',
+                'post',
+                'date'
+            ],
             include: [
                 {
                     model: User,
@@ -54,14 +60,14 @@ router.get('/createpost', withAuth, async(req, res) => {
     try {
         const userData = await User.findByPk(req.session.user_test, {
             attributes: { exclude: ['password']},
-            include: [{model: Post}],
+            include: [{model: Post, attributes: ['id', 'title', 'post', 'user_id', 'date']}],
         })
 
         console.log(userData)
         const user = userData.get({ plain: true })
         console.log(user)
         res.render('createpost', {
-            user,
+            ...user,
             logged_in: true
         })
         //res.render('createpost')
