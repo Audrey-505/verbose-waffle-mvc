@@ -36,4 +36,28 @@ router.delete('/:id', withAuth, async(req, res) => {
     }
 })
 
+//UPDATE DEL FUNCTIONALITY
+
+// router.put('/:id', withAuth, async(req, res) => {
+//     try {
+//     const postData = await Post.update({
+//         title: req.body.title,
+//         post: req.body.post
+//     },
+//     {
+//         where: {
+//             id: req.params.id
+//         }
+//     })
+//     if(!postData){
+//         res.status(404).json({message: 'No posts were found with that ID'})
+//         return
+//     }
+//     res.status(200).json(postData)
+// } catch (err) {
+//     res.status(500).json(err)
+// }
+// })
+
+
 module.exports = router

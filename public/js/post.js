@@ -43,6 +43,29 @@ if (title && post) {
   };
 
 
+  //UPDATE DEL FUNCTIONALITY
+  const updateBtnHandler = async (event) => {
+    if(event.target.hasAttribute('data-id')) {
+      const id = event.target.getAttribute('data-id')
+
+      const response = await fetch(`api/posts/${id}`,{
+        method:'PUT',
+        body: JSON.stringify({
+          title,
+          post
+        }),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+      if (response.ok){
+        document.location.replace('/createpost')
+      } else {
+        alert(response.statusText)
+      }
+    }
+  }
+
 // document
 //   .querySelector('.new-post-form')
 //   .addEventListener('submit', newFormHandler);
@@ -62,3 +85,11 @@ if (document.querySelector('.post-list')) {
       .querySelector('.post-list')
       .addEventListener('click', delButtonHandler);
 }
+
+//UPDATE DEL FUNCTIONALITY
+
+// if (document.querySelector('.update-post')){
+//   document
+//   .querySelector('update-post')
+//   .addEventListener('click', updateBtnHandler)
+// }
