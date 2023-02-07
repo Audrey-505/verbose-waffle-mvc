@@ -5,7 +5,8 @@
   <p>
     {{post}}
 {{#each comments}}
-    <p>Comment: {{comment_text}} </p>
+    <p>Comments: {{comment_text}} </p>
+    <p>{{created_at}}</p>
     {{/each}}
   </p>
   <div class="update-post"><button class="btn btn-sm btn-danger" data-id="{{id}}">UPDATE</button></div>
