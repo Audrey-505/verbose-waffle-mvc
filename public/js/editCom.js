@@ -23,5 +23,5 @@
   }
 
   document
-  .querySelector('.updateCom')
+  .querySelector('.updateComment')
   .addEventListener('submit', updateComHandler)
