@@ -128,6 +128,42 @@ router.get('/editpost/:id', async(req, res) => {
     }
 })
 
+//TESTING 
+router.get('/editcomment/:id', async(req, res) => {
+    try {
+        const postData = await Post.findByPk(req.params.id, {
+            attributes: [
+                'id',
+                'title',
+                'post',
+                'date'
+            ],
+            include: [
+                {
+                    model: User,
+                    attributes: ['id','name', 'email']
+                },
+                {
+                    model: Comment,
+                    attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+                    include: {
+                        model: User,
+                        attributes: ['id','name', 'email']
+                    }
+                }
+            ]
+        })
+        const post = postData.get({ plain: true })
+        res.render('editcomment', {
+            ...post,
+            logged_in: req.session.logged_in
+        })
+    } catch(err) {
+        res.status(500).json(err)
+    }
+})
+
+//BELOW IS WORKING 
 
 router.get('/login', async(req, res) => {
     if(req.session.logged_in){
