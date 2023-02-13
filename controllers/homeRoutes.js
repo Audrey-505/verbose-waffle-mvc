@@ -154,15 +154,70 @@ router.get('/editcomment/:id', async(req, res) => {
                 }
             ]
         })
-        const post = postData.get({ plain: true })
+        const comment = postData.get({ plain: true })
         res.render('editcomment', {
-            post,
+            comment,
             logged_in: req.session.logged_in
         })
     } catch(err) {
         res.status(500).json(err)
     }
 })
+
+router.get('/addcomment/:id', withAuth, async(req, res) => {
+    try {
+        const commentData = await Comment.findByPk(req.params.id, {
+            attributes: [
+                'id', 
+                'comment_text',
+                'post_id', 
+                'user_cid', 
+                'created_at'
+            ],
+            include: [
+                {
+                    model: User,
+                    attributes: ['id','name', 'email']
+                },
+                {
+                    model: Post,
+                    attributes: ['id','title','post','date'],
+                    include: {
+                        model: User,
+                        attributes: ['id','name', 'email'],
+                        model: Comment,
+                        attributes: ['id', 'comment_text','post_id','user_cid','created_at']
+                    }
+                }
+            ]
+        })
+        const comment = commentData.get({ plain: true })
+        console.log(comment)
+        res.render('addcomment', {
+            ...comment,
+            logged_in: req.session.logged_in
+        })
+    } catch(err) {
+        res.status(500).json(err)
+    }
+})
+
+// router.post('/addcomment', async(req, res) => {
+//     try {
+//         const newCom = await Comment.create({
+//             ...req.body,
+//             user_id: req.session.user_test,
+//             post_id: req.params.id
+//             // title: req.session.title,
+//             // post: req.session.post
+//         })
+//         console.log(newCom)
+//         res.status(200).json(newCom)
+//     } catch(err) {
+//         console.log(err)
+//         res.status(500).json(err)
+//     }
+// })
 
 //BELOW IS WORKING 
 

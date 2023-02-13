@@ -1,0 +1,11 @@
+{{#if logged_in}}
+<div>
+    <h1>Add Comment</h1>
+    <form class="addComment">
+        <textarea class="addCom" placeholder="add a comment"></textarea>
+        <button data-id="{{id}}" type="submit" class="btn btn-primary addCom">ADD</button>
+    </form>
+</div>
+{{/if}}
+
+<script src="/js/addCom.js"></script>

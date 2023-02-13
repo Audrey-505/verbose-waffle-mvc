@@ -7,7 +7,7 @@
 {{#each comments}}
     <p>Comments: {{comment_text}} </p>
     <p>{{created_at}}</p>
-    <div class="add-comment"><a href="/addcomment/{{id}}"><button class="btn btn-sm btn-danger" data-id="{{id}}">ADD COMMENT</button></a></div>
+    <div class="add-comment"><a href="/addcomment/{{post_id}}"><button class="btn btn-sm btn-danger" data-id="{{post_id}}">ADD COMMENT</button></a></div>
     <div class="edit-comment"><a href="/editcomment/{{id}}"><button class="btn btn-sm btn-danger" data-id="{{id}}">EDIT COMMENT</button></a></div>
     {{/each}}
   </p>

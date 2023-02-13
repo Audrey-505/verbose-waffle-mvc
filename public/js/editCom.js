@@ -3,7 +3,8 @@
   const updateComHandler = async (event) => {
     let comment_text = document.querySelector('.updateCom').value
     if(event.target.hasAttribute('data-id')) {
-      const id = event.target.getAttribute('data-id')
+      //const id = event.target.getAttribute('data-id')
+      const id = document.querySelector('.btn').getAttribute('data-id')
 
       const response = await fetch(`/api/posts/${id}`,{
         method:'PUT',
