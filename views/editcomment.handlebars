@@ -1,6 +1,8 @@
 <h1>Update Comment</h1>
-<form data-id="{{comment.id}}" class="updateComment">
-<textarea class="updateCom" placeholder="{{comment.comment_text}}"></textarea>
-<button data-id="{{comment.id}}" type="submit" class="btn btn-primary update-post">UPDATE</button>
+<form data-id="{{id}}" class="updateComment">
+<textarea class="updateCom" placeholder="{{comment_text}}"></textarea>
+{{!-- <textarea class="updateCom" placeholder="{{comment.comment_text}}"></textarea> --}}
+{{!-- <button data-id="{{comment.id}}" type="submit" class="btn btn-primary update-post">UPDATE</button> --}}
+<button data-id="{{id}}" type="submit" class="btn btn-primary update-post">UPDATE</button>
 </form>
 <script src="/js/editCom.js"></script>

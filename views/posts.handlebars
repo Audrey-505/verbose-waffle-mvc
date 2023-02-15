@@ -5,13 +5,16 @@
   <p>
     {{post}}
 {{#each comments}}
-    <p>Comments: {{comment_text}} </p>
+    <p>Comments: {{comment_text}} by:{{user.name}}</p>
     <p>{{created_at}}</p>
     <div class="add-comment"><a href="/addcomment/{{post_id}}"><button class="btn btn-sm btn-danger" data-id="{{post_id}}">ADD COMMENT</button></a></div>
-    <div class="edit-comment"><a href="/editcomment/{{post_id}}"><button class="btn btn-sm btn-danger" data-id="{{post_id}}">EDIT COMMENT</button></a></div>
+    <div class="edit-comment"><a href="/editcomment/{{id}}"><button class="btn btn-sm btn-danger" data-id="{{id}}">EDIT COMMENT</button></a></div>
     <div class="delete-comment"><a href="/delcomment/{{post_id}}"><button class="btn btn-sm btn-danger" data-id="{{post_id}}">DELETE COMMENT</button></a></div>
     {{/each}}
   </p>
+  {{!-- {{#if comment <= 0}}
+  <div class="add-comment"><a href="/addcomment/{{post_id}}"><button class="btn btn-sm btn-danger" data-id="{{post_id}}">ADD COMMENT</button></a></div>
+  {{/if}} --}}
   <div class="update-post"><a href="/editpost/{{id}}"><button class="btn btn-sm btn-danger" data-id="{{id}}">UPDATE</button></a></div>
 </div>
 {{else}}
