@@ -156,7 +156,7 @@ router.get('/editcomment/:id', async(req, res) => {
         })
         const comment = postData.get({ plain: true })
         res.render('editcomment', {
-            comment,
+            ...comment,
             logged_in: req.session.logged_in
         })
     } catch(err) {
