@@ -5,11 +5,12 @@
   <p>
     {{post}}
 {{#each comments}}
-    <p>Comments: {{comment_text}} by:{{user.name}}</p>
+    <p>Comments: {{comment_text}} by:{{user.email}}</p>
     <p>{{created_at}}</p>
     <div class="add-comment"><a href="/addcomment/{{post_id}}"><button class="btn btn-sm btn-danger" data-id="{{post_id}}">ADD COMMENT</button></a></div>
     <div class="edit-comment"><a href="/editcomment/{{id}}"><button class="btn btn-sm btn-danger" data-id="{{id}}">EDIT COMMENT</button></a></div>
-    <div class="delete-comment"><a href="/delcomment/{{post_id}}"><button class="btn btn-sm btn-danger" data-id="{{post_id}}">DELETE COMMENT</button></a></div>
+    {{!-- <form class="delCom"><div class="delete-comment"><button type="submit" class="btn btn-sm btn-danger" data-id="{{id}}">DELETE COMMENT</button></div></form> --}}
+    <form class="delCom"><button type="submit" class="btn btn-sm btn-danger" id="deletebtn" data-id="{{id}}">DELETE COMMENT</button></form>
     {{/each}}
   </p>
   {{!-- {{#if comment <= 0}}
@@ -26,3 +27,5 @@
   </p>
 </div>
 {{/if}}
+
+<script src="/js/delCom.js"></script>
