@@ -5,6 +5,9 @@ const delComHandler = async (event) => {
 
         const response = await fetch(`/api/comments/${id}`, {
             method: 'DELETE',
+            body: JSON.stringify({
+                id
+              }),
         });
 
         if (response.ok) {
@@ -16,6 +19,10 @@ const delComHandler = async (event) => {
 };
 
 
+// document
+//     .querySelector('#deletebtn')
+//     .addEventListener('click', delComHandler)
+
 document
-    .querySelector('#deletebtn')
-    .addEventListener('click', delComHandler)
+    .querySelector('#delCom')
+    .addEventListener('submit', delComHandler)
